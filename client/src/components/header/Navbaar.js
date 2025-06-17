@@ -22,7 +22,7 @@ const Navbaar = () => {
         </div>
         <div className="right">
           <div className="nav_btn">
-            <NavLink to="/login">Đăng Nhập</NavLink>
+            <NavLink to="/login">Sign In</NavLink>
           </div>
           <div className="cart_btn">
             <Badge badgeContent={4} color="primary">

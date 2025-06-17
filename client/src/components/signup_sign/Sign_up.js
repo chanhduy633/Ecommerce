@@ -12,7 +12,7 @@ const Sign_up = () => {
 
   const adddata = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
 
     setUdata((pre) => {
       return {
