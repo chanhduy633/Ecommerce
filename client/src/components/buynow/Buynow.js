@@ -3,6 +3,7 @@ import Divider from "@mui/material/Divider";
 import "./buynow.css";
 import Option from "./Option";
 import Subtotal from "./Subtotal";
+import Right from "./Right";
 const Buynow = () => {
   return (
     <div className="buynow_section">
@@ -34,6 +35,7 @@ const Buynow = () => {
           <Divider />
           <Subtotal />
         </div>
+        <Right />
       </div>
     </div>
   );
