@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Divider } from "@mui/material";
 import "./Slide.css";
-import { products } from './productdata';
+// import { products } from './productdata';
 
 const responsive = {
   desktop: {
@@ -19,11 +19,11 @@ const responsive = {
     items: 1,
   },
 };
-const Slide = () => {
+const Slide = ({ title, products }) => {
   return (
     <div className="products_section">
       <div className="products_deal">
-        <h3>Deal Of The Day</h3>
+        <h3>{title}</h3>
         <button className="view_btn">View All</button>
       </div>
       <Divider />
