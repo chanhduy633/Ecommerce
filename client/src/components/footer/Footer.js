@@ -10,26 +10,26 @@ const Footer = () => {
         <footer>
             <div className="footer_container">
                 <div className="footr_details_one">
-                    <h3>Get to Know US</h3>
-                    <p>About us</p>
-                    <p>Careers</p>
-                    <p>Press Releases</p>
-                    <p>Amazon Cares</p>
+                    <h3>Tìm hiểu về chúng tôi</h3>
+                    <p>Về chúng tôi</p>
+                    <p>Cơ hội nghề nghiệp</p>
+                    <p>Thông cáo báo chí</p>
+                    <p>Amazon chăm sóc</p>
                 </div>
                 <div className="footr_details_one">
-                    <h3>Connect with Us</h3>
+                    <h3>Amazon chăm sóc</h3>
                     <p>Facebook</p>
                     <p>Twitter</p>
                     <p>Instagram</p>
                 </div>
                 <div className="footr_details_one forres">
-                    <h3>Make Money with Us</h3>
+                    <h3>Kiếm tiền cùng chúng tôi</h3>
                     <p>Facebook</p>
                     <p>Twitter</p>
                     <p>Instagram</p>
                 </div>
                 <div className="footr_details_one forres">
-                    <h3>Make Money with Us</h3>
+                    <h3>Kiếm tiền cùng chúng tôi</h3>
                     <p>Facebook</p>
                     <p>Twitter</p>
                     <p>Instagram</p>
@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
             <div className="lastdetails">
                 <img src="./amazon_PNG25.png" alt="logo" />
-                <p>Conditions of Use & Sale &nbsp; &nbsp;&nbsp;  Privacy Notice  &nbsp; &nbsp;&nbsp; Interest-Based Ads  &nbsp; &nbsp;&nbsp;  © 1996-{year}, Amazon.com, Inc. or its affiliates</p>
+                <p>Điều khoản sử dụng & bán hàng &nbsp; &nbsp;&nbsp;  Thông báo bảo mật  &nbsp; &nbsp;&nbsp; Quảng cáo dựa trên sở thích  &nbsp; &nbsp;&nbsp;  © 1996-{year}</p>
             </div>
         </footer>
     )

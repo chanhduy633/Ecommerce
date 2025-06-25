@@ -14,4 +14,20 @@ router.get("/getproducts", async (req, res) => {
 });
 
 
+
+router.get("/getproductsone/:id", async (req, res) => {
+
+    try {
+        const { id } = req.params;
+        console.log(id);
+
+        const individual = await Products.findOne({ id: id });
+        console.log(individual + "Đã nhận được");
+
+        res.status(201).json(individual);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
 module.exports = router;
