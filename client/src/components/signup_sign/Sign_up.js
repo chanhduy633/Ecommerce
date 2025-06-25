@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { NavLink } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Divider } from "@mui/material";
 const Sign_up = () => {
   const [udata, setUdata] = useState({
     fname: "",
@@ -22,42 +25,85 @@ const Sign_up = () => {
     });
   };
 
+  const senddata = async (e) => {
+    e.preventDefault();
+
+    const { fname, email, mobile, password, cpassword } = udata;
+    try {
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fname,
+          email,
+          mobile,
+          password,
+          cpassword,
+        }),
+      });
+
+      const data = await res.json();
+      // console.log(data);
+
+      if (res.status === 422 || !data) {
+        toast.error("Thông tin không hợp lệ!", {
+          position: "top-center",
+        });
+      } else {
+        setUdata({
+          ...udata,
+          fname: "",
+          email: "",
+          mobile: "",
+          password: "",
+          cpassword: "",
+        });
+        toast.success("Đăng ký thành công!", {
+          position: "top-center",
+        });
+      }
+    } catch (error) {
+      console.log("Lỗi phía frontend: " + error.message);
+    }
+  };
   return (
     <section>
       <div className="sign_container">
         <div className="sign_header">
-          <img src="./blacklogoamazon.png" alt="amazonlogo" />
+          <img src="./blacklogoamazon.png" alt="signupimg" />
         </div>
         <div className="sign_form">
-          <form>
-            <h1>Đăng ký</h1>
+          <form method="POST">
+            <h1>Tạo tài khoản</h1>
             <div className="form_data">
-              <label htmlFor="fname">Họ và tên</label>
+              <label htmlFor="name">Tên của bạn</label>
               <input
                 type="text"
+                name="fname"
                 onChange={adddata}
                 value={udata.fname}
-                name="fname"
-                id="email"
+                id="name"
               />
             </div>
             <div className="form_data">
               <label htmlFor="email">Email</label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 onChange={adddata}
                 value={udata.email}
-                name="email"
                 id="email"
               />
             </div>
             <div className="form_data">
-              <label htmlFor="mobile">Số Điện Thoại</label>
+              <label htmlFor="mobile">Số điện thoại</label>
               <input
-                type="text"
+                type="number"
+                name="mobile"
                 onChange={adddata}
                 value={udata.mobile}
-                name="mobile"
                 id="mobile"
               />
             </div>
@@ -65,31 +111,36 @@ const Sign_up = () => {
               <label htmlFor="password">Mật khẩu</label>
               <input
                 type="password"
+                name="password"
                 onChange={adddata}
                 value={udata.password}
-                name="password"
-                placeholder="Tối thiểu 6 kí tự"
                 id="password"
+                placeholder="Ít nhất 6 ký tự"
               />
             </div>
             <div className="form_data">
-              <label htmlFor="cpassword">Nhập lại mật khẩu</label>
+              <label htmlFor="passwordg">Nhập lại mật khẩu</label>
               <input
-                type="cpassword"
+                type="password"
+                name="cpassword"
                 onChange={adddata}
                 value={udata.cpassword}
-                name="cpassword"
-                id="cpassword"
+                id="passwordg"
               />
             </div>
-            <button className="signin_btn">Tiếp tục</button>
+            <button type="submit" className="signin_btn" onClick={senddata}>
+              Tiếp tục
+            </button>
 
-            <div className="sign_info">
-              <p>Bạn đã có tài khoản?</p>
+            <Divider />
+
+            <div className="signin_info">
+              <p>Đã có tài khoản?</p>
               <NavLink to="/login">Đăng nhập</NavLink>
             </div>
           </form>
         </div>
+        <ToastContainer />
       </div>
     </section>
   );

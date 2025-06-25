@@ -53,7 +53,7 @@ const Sign_in = () => {
           </form>
         </div>
         <div className="create_accountinfo">
-          <button>Tạo tài khoản</button>
+          <button><NavLink to="/register">Tạo tài khoản</NavLink></button>
         </div>
       </div>
     </section>
