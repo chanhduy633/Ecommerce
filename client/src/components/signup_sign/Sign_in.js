@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import "./signup.css";
 import { NavLink } from "react-router";
+import { Logincontext } from '../context/ContextProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; 
+
+
 const Sign_in = () => {
+  const { account, setAccount } = useContext(Logincontext);
+  const navigate = useNavigate(); 
   const [logdata, setData] = useState({
     email: "",
     password: "",
@@ -19,6 +27,46 @@ const Sign_in = () => {
       };
     });
   };
+
+  const senddata = async (e) => {
+        e.preventDefault();
+
+        const { email, password } = logdata;
+        // console.log(email);
+        try {
+            const res = await fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                })
+            });
+
+
+            const data = await res.json();
+            console.log(data);
+
+            if (res.status === 400 || !data) {
+                console.log("Thông tin không hợp lệ ⚠️!");
+                toast.error("Thông tin không hợp lệ ⚠️!", {
+                    position: "top-center"
+                });
+            } else {
+                setAccount(data);
+                setData({ ...logdata, email: "", password: "" })
+                navigate("/");
+                toast.success("Đăng nhập thành công 😃!", {
+                    position: "top-center"
+                });
+            }
+        } catch (error) {
+            console.log("Lỗi trang đăng nhập: "  + error.message);
+        }
+    };
+
+
   return (
     <section>
       <div className="sign_container">
@@ -26,7 +74,7 @@ const Sign_in = () => {
           <img src="./blacklogoamazon.png" alt="amazonlogo" />
         </div>
         <div className="sign_form">
-          <form>
+          <form method="POST">
             <h1>Đăng nhập</h1>
             <div className="form_data">
               <label htmlFor="email">Email</label>
@@ -49,8 +97,9 @@ const Sign_in = () => {
                 id="password"
               />
             </div>
-            <button className="signin_btn">Tiếp tục</button>
+            <button className="signin_btn" onClick={senddata}>Tiếp tục</button>
           </form>
+           <ToastContainer />
         </div>
         <div className="create_accountinfo">
           <button><NavLink to="/register">Tạo tài khoản</NavLink></button>

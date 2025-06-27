@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Divider from "@mui/material/Divider";
 import "./cart.css";
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
-// import { Logincontext } from "../context/Contextprovider";
+import { Logincontext } from "../context/ContextProvider";
 const Cart = () => {
-  // const { account, setAccount } = useContext(Logincontext);
-  // console.log(account);
+  const { account, setAccount } = useContext(Logincontext);
+  console.log(account);
 
   const { id } = useParams("");
   // console.log(id);
 
+  const nevigate = useNavigate();
   // const history = useHistory();
 
   const [inddata, setIndedata] = useState("");
@@ -42,6 +43,32 @@ const Cart = () => {
     setTimeout(getinddata, 1000);
   }, [id]);
 
+  const addtocart = async (id) => {
+        console.log(id);
+        const check = await fetch(`/addcart/${id}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                inddata
+            }),
+            credentials: "include"
+        });
+        // console.log(check);
+        const data1 = await check.json();
+        console.log(data1 +  'ok');
+
+        if (check.status !== 201) {
+            alert("Không có dữ liệu khả dụng")
+        } else {
+            console.log("Sản phẩm đã được thêm vào giỏ hàng");
+            setAccount(data1)
+            nevigate("/buynow");
+        }
+    }
+
   return (
 
         <div className="cart_section">
@@ -50,7 +77,7 @@ const Cart = () => {
                     <div className="left_cart">
                         <img src={inddata.detailUrl} alt="cart" />
                         <div className="cart_btn">
-                            <button className="cart_btn1" >Thêm Giỏ Hàng</button>
+                            <button className="cart_btn1" onClick={()=>addtocart(inddata.id)} >Thêm Giỏ Hàng</button>
                             <button className="cart_btn2">Mua Ngay</button>
                         </div>
 
