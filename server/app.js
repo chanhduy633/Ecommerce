@@ -21,7 +21,13 @@ app.use("/", router);
 
 
 
-const port = 8005;
+const port = process.env.PORT || 8005;
+
+
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static("client/build"));
+}
+
 app.listen(port,()=>{
     console.log(`Server đang chạy trên port: ${port} `);
 });
