@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Sign_in = () => {
+  const API_URL = "https://ecommerce-backend-sm3l.onrender.com";
+
   const { account, setAccount } = useContext(Logincontext);
   const navigate = useNavigate(); 
   const [logdata, setData] = useState({
