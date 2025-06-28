@@ -99,7 +99,6 @@ const Sign_in = () => {
             </div>
             <button className="signin_btn" onClick={senddata}>Tiếp tục</button>
           </form>
-           <ToastContainer />
         </div>
         <div className="create_accountinfo">
           <button><NavLink to="/register">Tạo tài khoản</NavLink></button>

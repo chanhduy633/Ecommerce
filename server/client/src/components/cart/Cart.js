@@ -5,6 +5,7 @@ import { useHistory, useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Logincontext } from "../context/ContextProvider";
 const Cart = () => {
+    const API_URL = "https://ecommerce-backend-sm3l.onrender.com ";
   const { account, setAccount } = useContext(Logincontext);
   console.log(account);
 
@@ -19,7 +20,7 @@ const Cart = () => {
   // console.log([inddata]);
 
   const getinddata = async () => {
-    const res = await fetch(`/getproductsone/${id}`, {
+    const res = await fetch(`${API_URL}/getproductsone/${id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
