@@ -5,7 +5,7 @@ import { useHistory, useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Logincontext } from "../context/ContextProvider";
 const Cart = () => {
-    const API_URL = "https://ecommerce-backend-sm3l.onrender.com ";
+    const API_URL = "https://ecommerce-backend-kryp.onrender.com";
   const { account, setAccount } = useContext(Logincontext);
   console.log(account);
 
@@ -46,7 +46,7 @@ const Cart = () => {
 
   const addtocart = async (id) => {
         console.log(id);
-        const check = await fetch(`/addcart/${id}`, {
+        const check = await fetch(`${API_URL}/addcart/${id}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
