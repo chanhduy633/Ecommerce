@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Logincontext } from "../context/ContextProvider";
 import "react-toastify/dist/ReactToastify.css";
-
+const API_URL = "https://ecommerce-backend-sm3l.onrender.com
 const Option = ({ deletedata, get }) => {
   // console.log(deletedata);
 
@@ -10,7 +10,7 @@ const Option = ({ deletedata, get }) => {
 
   const removedata = async (id) => {
     try {
-      const res = await fetch(`remove/${id}`, {
+      const res = await fetch(`${API_URL}/remove/${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
