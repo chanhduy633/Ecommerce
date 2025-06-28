@@ -7,11 +7,12 @@ import Right from "./Right";
 import Empty from './Empty';
 
 const Buynow = () => {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [cartdata, setCartdata] = useState("");
   // console.log(cartdata.length);
 
   const getdatabuy = async () => {
-    const res = await fetch(`/cartdetails`, {
+    const res = await fetch(`${API_URL}/cartdetails`, {
       method: "GET",
       headers: {
         Accept: "application/json",

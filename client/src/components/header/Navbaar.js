@@ -30,7 +30,7 @@ const usestyle = makeStyles({
 
 
 const Navbaar = () => {
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const classes = usestyle();
 
     const nevigate = useNavigate("");
@@ -61,7 +61,7 @@ const Navbaar = () => {
     const { account, setAccount } = useContext(Logincontext);
 
     const getdetailsvaliduser = async () => {
-        const res = await fetch(`/validuser`, {
+        const res = await fetch(`${API_URL}/validuser`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -88,7 +88,7 @@ const Navbaar = () => {
 
     // for logout
     const logoutuser = async () => {
-        const res2 = await fetch(`/logout`, {
+        const res2 = await fetch(`${API_URL}/logout`, {
             method: "GET",
             headers: {
                 Accept: "application/json",

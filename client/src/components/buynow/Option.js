@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { Logincontext } from "../context/ContextProvider";
 import "react-toastify/dist/ReactToastify.css";
+
 const Option = ({ deletedata, get }) => {
   // console.log(deletedata);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const { account, setAccount } = useContext(Logincontext);
   // console.log(account);
 
   const removedata = async (id) => {
     try {
-      const res = await fetch(`/remove/${id}`, {
+      const res = await fetch(`${API_URL}/remove/${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
