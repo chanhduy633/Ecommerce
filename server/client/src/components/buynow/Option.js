@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Option = ({ deletedata, get }) => {
   // console.log(deletedata);
-  const API_URL = "https://ecommerce-backend-sm3l.onrender.com ";
+  const API_URL = process.env.REACT_APP_API_URL;
   const { account, setAccount } = useContext(Logincontext);
   // console.log(account);
 

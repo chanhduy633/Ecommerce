@@ -1,4 +1,4 @@
-const API_URL = "https://ecommerce-backend-kryp.onrender.com";
+const API_URL = process.env.REACT_APP_API_URL;
 export const getProducts = ()=> async(dispatch)=>{
     try {
         const data = await fetch(`${API_URL}/getproducts`,{

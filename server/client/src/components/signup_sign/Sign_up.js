@@ -12,7 +12,7 @@ const Sign_up = () => {
     password: "",
     cpassword: "",
   });
-  const API_URL = "https://ecommerce-backend-kryp.onrender.com";
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const adddata = (e) => {
     const { name, value } = e.target;

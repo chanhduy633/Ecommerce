@@ -7,7 +7,7 @@ import Right from "./Right";
 import Empty from './Empty';
 
 const Buynow = () => {
-  const API_URL = "hhttps://ecommerce-backend-kryp.onrender.com";
+  const API_URL = process.env.REACT_APP_API_URL;
   const [cartdata, setCartdata] = useState("");
   // console.log(cartdata.length);
 

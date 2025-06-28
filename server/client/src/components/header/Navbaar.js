@@ -30,7 +30,7 @@ const usestyle = makeStyles({
 
 
 const Navbaar = () => {
-    const API_URL = "https://ecommerce-backend-sm3l.onrender.com";
+    const API_URL = process.env.REACT_APP_API_URL;
     const classes = usestyle();
 
     const nevigate = useNavigate("");
