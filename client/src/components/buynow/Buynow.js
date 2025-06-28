@@ -6,12 +6,13 @@ import Subtotal from "./Subtotal";
 import Right from "./Right";
 import Empty from './Empty';
 
+const API_URL = "https://ecommerce-backend-sm3l.onrender.com ";
 const Buynow = () => {
   const [cartdata, setCartdata] = useState("");
   // console.log(cartdata.length);
 
   const getdatabuy = async () => {
-    const res = await fetch("/cartdetails", {
+    const res = await fetch(`${API_URL}/cartdetails`, {
       method: "GET",
       headers: {
         Accept: "application/json",
