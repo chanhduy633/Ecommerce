@@ -30,7 +30,7 @@ const Sign_up = () => {
 
     const { fname, email, mobile, password, cpassword } = udata;
     try {
-      const res = await fetch("/register", {
+      const res = await fetch(`/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

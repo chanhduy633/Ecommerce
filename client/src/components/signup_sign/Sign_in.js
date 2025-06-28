@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Sign_in = () => {
+
   const { account, setAccount } = useContext(Logincontext);
   const navigate = useNavigate(); 
   const [logdata, setData] = useState({
@@ -34,7 +35,7 @@ const Sign_in = () => {
         const { email, password } = logdata;
         // console.log(email);
         try {
-            const res = await fetch("/login", {
+            const res = await fetch(`/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
