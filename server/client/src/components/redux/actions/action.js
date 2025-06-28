@@ -1,4 +1,4 @@
-const API_URL = "https://ecommerce-backend-sm3l.onrender.com";
+const API_URL = "https://ecommerce-backend-kryp.onrender.com";
 export const getProducts = ()=> async(dispatch)=>{
     try {
         const data = await fetch(`${API_URL}/getproducts`,{

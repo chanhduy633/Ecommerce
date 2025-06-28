@@ -7,7 +7,7 @@ import Right from "./Right";
 import Empty from './Empty';
 
 const Buynow = () => {
-  const API_URL = "https://ecommerce-backend-sm3l.onrender.com ";
+  const API_URL = "hhttps://ecommerce-backend-kryp.onrender.com";
   const [cartdata, setCartdata] = useState("");
   // console.log(cartdata.length);
 
