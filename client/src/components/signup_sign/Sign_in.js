@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Sign_in = () => {
-  const API_URL = process.env.REACT_APP_API_URL;
+
   const { account, setAccount } = useContext(Logincontext);
   const navigate = useNavigate(); 
   const [logdata, setData] = useState({
@@ -35,7 +35,7 @@ const Sign_in = () => {
         const { email, password } = logdata;
         // console.log(email);
         try {
-            const res = await fetch(`${API_URL}/login`, {
+            const res = await fetch(`/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -100,7 +100,6 @@ const Sign_in = () => {
             </div>
             <button className="signin_btn" onClick={senddata}>Tiếp tục</button>
           </form>
-           <ToastContainer />
         </div>
         <div className="create_accountinfo">
           <button><NavLink to="/register">Tạo tài khoản</NavLink></button>

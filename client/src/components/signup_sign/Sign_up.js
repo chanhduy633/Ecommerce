@@ -12,7 +12,6 @@ const Sign_up = () => {
     password: "",
     cpassword: "",
   });
-  const API_URL = process.env.REACT_APP_API_URL;
 
   const adddata = (e) => {
     const { name, value } = e.target;
@@ -31,7 +30,7 @@ const Sign_up = () => {
 
     const { fname, email, mobile, password, cpassword } = udata;
     try {
-      const res = await fetch(`${API_URL}/register`, {
+      const res = await fetch(`/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

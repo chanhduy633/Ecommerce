@@ -39,19 +39,19 @@ const Rightheader = ({ userlog ,logclose}) => {
                         <Avatar className="avtar"
                      />
                 }
-                {account ? <h3>Hello, {account.fname.toUpperCase()}</h3> : ""}
+                {account ? <h3>Xin chào, {account.fname.toUpperCase()}</h3> : ""}
             </div>
             <div className="nav_btn" onClick={()=>logclose()}>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/">Shop By Category</NavLink>
+                <NavLink to="/">Trang chủ</NavLink>
+                <NavLink to="/">Mua sắm theo danh mục</NavLink>
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
-                <NavLink to="/" style={{ marginTop: 10 }}>Today's Deal</NavLink>
+                <NavLink to="/" style={{ marginTop: 10 }}>Ưu đãi hôm nay</NavLink>
                 {
-                    account ? <NavLink to="/buynow">Your Order</NavLink> : <NavLink to="/login">Your Order</NavLink>
+                    account ? <NavLink to="/buynow">Đơn hàng của bạn</NavLink> : <NavLink to="/login">Đơn hàng của bạn</NavLink>
                 }
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
                 <div className="flag">
-                    <NavLink to="" style={{ marginTop: 14 }}>Settings</NavLink>
+                    <NavLink to="" style={{ marginTop: 14 }}>Cài đặt</NavLink>
                     <img src={imgd} alt="india flag" style={{ width: 35, marginLeft: 10 }} />
                 </div>
 
@@ -59,9 +59,9 @@ const Rightheader = ({ userlog ,logclose}) => {
                     account ?
                         <div className="flag">
                             <LogoutIcon style={{ fontSize: 18, marginRight: 4 }} />
-                            <h3 onClick={() => userlog()} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
+                            <h3 onClick={() => userlog()} style={{ cursor: "pointer", fontWeight: 500 }}>Đăng xuất</h3>
                         </div>
-                        : <NavLink to="/login">Sign in</NavLink>
+                        : <NavLink to="/login">Đăng nhập</NavLink>
                 }
 
 
